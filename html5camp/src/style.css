@@ -50,13 +50,11 @@ body {
   top: 50%;
   margin-top: -350px;
   background-color: #eee;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
   opacity: 0.35;
 
-  -webkit-transform: scale(0.8) translateZ(0);
-  -moz-transform: scale(0.8);
-  -o-transform: scale(0.8);
+  -webkit-transform: scale(0.9) translateZ(0);
+  -moz-transform: scale(0.9);
+  -o-transform: scale(0.9);
 
   -webkit-transition-property: margin, -webkit-transform, opacity;
   -webkit-transition-duration: 0.3s, 0.3s, 0.3s;
@@ -76,16 +74,6 @@ body {
   -moz-transition: margin 0.3s ease-in-out;
   -o-transition: margin 0.3s ease-in-out;
   */
-}
-
-.slide:nth-child(even) {
-  border-radius: 10px 30px 10px 30px;
-  -moz-border-radius: 10px 20px 10px 20px;
-}
-
-.slide:nth-child(odd) {
-  border-radius: 20px 10px 20px 10px;
-  -moz-border-radius: 20px 10px 20px 10px;
 }
 
 .slide p, .slide textarea {
@@ -113,35 +101,6 @@ body {
   right: 45px;
   opacity: 0.25;
 }
-
-.offline-storage .counter:after {
-  background-image: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Offline_Storage_32.png);
-}
-
-.realtime-communication .counter:after {
-  background-image: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Connectivity_32.png);
-}
-
-.performance .counter:after {
-  background-image: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Performance_32.png);
-}
-
-.semantics .counter:after {
-  background-image: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Semantics_32.png);
-}
-
-.multimedia .counter:after {
-  background: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_MultiMedia_32.png);
-}
-
-.effects .counter:after {
-  background: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_3D_Effects_32.png);
-}
-
-.styling .counter:after {
-  background: url(http://www.html5rocks.com/static/images/identity/classes_32/HTML5_Styling_32.png);
-}
-
 .slide.title > .counter,
 .slide.segue > .counter,
 .slide.mainTitle > .counter {
@@ -211,13 +170,13 @@ body {
 
 .slide.far-past {
   display: block;
-  margin-left: -2400px;
+  margin-left: -3000px;
 }
 
 .slide.past {
   visibility: visible;
   display: block;
-  margin-left: -1400px;
+  margin-left: -2000px;
 }
 
 .slide.current {
@@ -233,12 +192,12 @@ body {
 .slide.future {
   visibility: visible;
   display: block;
-  margin-left: 500px;
+  margin-left: 1000px;
 }
 
 .slide.far-future {
   display: block;
-  margin-left: 1500px;
+  margin-left: 2500px;
 }
 
 body.three-d div.presentation {

@@ -41,7 +41,7 @@
 
         // rewrite the query to be ID rooted
         if (!rootIsDoc || ('>~+'.indexOf(query.charAt(0)) >= 0)) {
-            root.id = root.id || ('qUnique' + (ctr++));
+            root.id = root.id || ('html5camp-slide-' + (ctr++));
             query = '#' + root.id + ' ' + query;
         }
         // don't choke on something like ".yada.yada >"
