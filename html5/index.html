@@ -1,12 +1,8 @@
-<!doctype html>  
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!DOCTYPE html>  
+<html class="no-js">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=9" />
 
   <title>HTML5CAMP. Кружок вышивания HTML5 JavaScript`ом</title>
 
@@ -16,8 +12,9 @@
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/presentation.css">
-  <script src="js/libs/modernizr-1.6.min.js"></script>
-
+  <script>
+    document.documentElement.className = 'js';
+  </script>
 </head>
 
 <body>
@@ -25,19 +22,41 @@
   <div id="container">
     <header></header>
     
-    <div id="presentation"></div>
-    
     <div id="slides">
-        <div class="slide" id="slide-start">1</div>
-        <div class="slide" id="slide-end">2</div>
-        <div class="slide">3</div>
-        <div class="slide">4</div>
-        <div class="slide">5</div>
-        <div class="slide">6</div>
+        <div class="slide" id="slide-start">
+            <header>Вышиваем HTML5*</header>
+            <section>
+                <p>*в подарок всем хозяюшкам бесплатная библиотека рукоделия</p>
+            </section>
+        </div>
+        <div class="slide" id="slide-end">
+            <header>Трудовики</header>
+            <section>
+                <ul class="speakers">
+                    <li>Виталий Баум <a href="#" class="html">vbaum@microsoft.com</a></li>
+                    <li>Роман Рождественский <a href="#" class="html">sbmaxx@yandex-team.ru</a></li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="slide">
+            <header>Содержание</header>
+            <section>
+                <ul id="agenda">
+                    <li>Что нового в HTML5</li>
+                    <li>Настоящий школьный урок</li>
+                    <li>Игры - и они тоже!</li>
+                    <li>B хозяйстве</li>
+                    <li>Подарочек</li>
+                </ul>
+            </section>
+        </div>
     </div>
 
+    <div id="info"></div>
+
     <div id="preloader">
-        <div id="preloader-img" class="preloader"><img src="images/HTML5_Badge_512.png" width="512" height="512" alt="html5 logo"/></div>
+        <div id="preloader-img" class="preloader"><img src="images/HTML5_Badge_512.png" alt="html5 logo"/></div>
         <div id="preloader-bg" class="preloader"><img src="images/background.png" alt="html5 camp"/></div>
     </div>
 
