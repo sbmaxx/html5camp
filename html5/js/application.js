@@ -40,9 +40,12 @@
                 matches = window.location.hash.match(/^#(\d+)/);
 
             if (matches && matches[1]) {
-                current = matches[1] - 1;
+                current = matches[1];
+                console.log('current is',current);
             }
-            if (index === current) {
+
+            if (index == current) {
+                console.log('current&!');
                 return 'current';
             } else if (index > current) {
                 return 'next';
@@ -261,8 +264,8 @@
             
             }
             if (isStart) {
-                this.currentSlide = this.slides[0];
-                this.currentSlide.move(-1);
+                //this.currentSlide = this.slides[0];
+                //this.currentSlide.move(-1);
             }
 
             slide.move(0);
