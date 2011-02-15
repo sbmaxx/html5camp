@@ -92,16 +92,13 @@ body {
 .slide .highlight {
 	border: 3px dashed #000;
 }
-#slide-start {
+.slide.stage {
     vertical-align: middle;
     text-align: center;
 }
-#slide-start header {
+.slide.stage header {
     margin-top: 15%;
     font-size: 90px;
     letter-spacing: -2px;
     color: #000;
-}
-#slide-start header {
-    
 }
