@@ -21,6 +21,9 @@
 #preloader-bg {
     visibility: hidden;
 }
+#preloader-img {
+    visibility: hidden;
+}
 #preloader-img img {
     margin-top: 30px;
 }
@@ -67,8 +70,13 @@
 #container #slides {
     display: none;
 }
-#container.active #preloader {
+#container #info {
     display: none;
+}
+#container.active #info {
+    display: block;
+}
+#container.active #preloader {
 }
 #container.active #slides {
     display: block;

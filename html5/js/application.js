@@ -71,6 +71,8 @@
         }, options || {});
 
         this.isActive = false;
+        this.isVisible = false;
+
         this.slides = [];
         this.slidesIDs = [];
         this.currentSlide = null;
@@ -89,10 +91,15 @@
             this.bind();
             this.initSlides();
 
-            this.doSomeCoolAnimationAndStyleing(function() {
+            $(window).trigger('resize');
+
+            this.showBg(function() {
                 _this.isActive = true;
                 _this.start();
             });
+            /*
+            this.doSomeCoolAnimationAndStyleing(function() {});
+            */
         },
 
         bind: function() {
@@ -121,6 +128,15 @@
             });
         },
 
+        showBg: function(callback) {
+            this.elems.preloaderBg.css({
+                'opacity' : 0,
+                'visibility': 'visible'
+            });
+
+            this.elems.preloaderBg.animate({'opacity': 1}, 1000, callback);
+        },
+        
         initSlides: function() {
             var _this = this;
 
@@ -144,7 +160,25 @@
         },
 
         setState: function(state) {
-            this.elems.container.removeClass().addClass(state);
+            var _this = this;
+            if (state === 'active') {
+                this.elems.slides.css({
+                    'opacity': 0,
+                    'visibility' : 'visible'
+                });
+
+                this.elems.container.removeClass().addClass(state);
+
+                this.elems.preloaderImg.animate({
+                    opacity: 0,
+                }, 1000, $.noop);
+
+                this.elems.slides.animate({
+                    opacity: 1,
+                }, 1000, $.noop);
+            } else {
+                this.elems.container.removeClass().addClass(state);
+            }
         },
 
         doSomeCoolAnimationAndStyleing: function(callback) {
@@ -152,21 +186,23 @@
                 a1 = $.Deferred(),
                 a2 = $.Deferred();
 
-            $(window).trigger('resize');
-
-            this.elems.preloaderImg.css('opacity', 1)
-            this.elems.preloaderBg.css({
+            this.elems.preloaderImg.css({
                 'opacity': 0,
+                'visibility' : 'visible'
+            });
+
+            this.elems.preloaderBg.css({
+                'opacity': 1,
                 'visibility': 'visible'
             });
 
             this.elems.preloaderImg.animate({
-                opacity: 0,
-            }, 1000, a1.resolve);
+                opacity: 1,
+            }, 2000, a1.resolve);
 
             this.elems.preloaderBg.animate({
-                opacity: 1,
-            }, 1000, a2.resolve);
+                opacity: 0,
+            }, 2000, a2.resolve);
 
             $.when(a1, a2).done(callback);
         },
@@ -199,8 +235,16 @@
         },
 
         showSlide: function(id, isStart) {
+            var _this = this;
             if (!this.hasSlide(id) && !this.currentSlide) return;
-            if (!this.currentSlide) this.setState('active');
+            
+            if (!this.currentSlide && !this.isVisible) {
+                this.doSomeCoolAnimationAndStyleing(function() {
+                    _this.setState('active');
+                    _this.isVisible = true;
+                    //_this.showSlide(id, isStart);
+                });
+            }
 
             var slide = this.getSlideById(id),
                 _this = this;
