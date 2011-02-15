@@ -168,6 +168,7 @@
                 });
 
                 this.elems.container.removeClass().addClass(state);
+                this.isActive = false;
 
                 this.elems.preloaderImg.animate({
                     opacity: 0,
@@ -175,7 +176,9 @@
 
                 this.elems.slides.animate({
                     opacity: 1,
-                }, 1000, $.noop);
+                }, 1000, function() {
+                    _this.isActive = true;
+                });
             } else {
                 this.elems.container.removeClass().addClass(state);
             }
