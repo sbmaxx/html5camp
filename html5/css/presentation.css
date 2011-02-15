@@ -89,6 +89,9 @@ body {
     font-size: 80px;
     color: #000;
 }
+.slide .highlight {
+	border: 3px dashed #000;
+}
 #slide-start {
     vertical-align: middle;
     text-align: center;
