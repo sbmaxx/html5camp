@@ -263,3 +263,36 @@
         Application.init();
     });    
 })();
+
+//custom scripts
+
+$(function(){
+	
+	$(".dragndrop li[draggable=true]")
+		.live('dragstart', function(event) {
+					event.originalEvent.dataTransfer.setData('text/plain', $(this).html());
+					  return true;
+		    });
+	
+	$(".dragndrop")
+			.bind('dragenter', function(event) {
+					$(this).addClass("highlight");
+	        return false;
+	    })
+	    .bind('dragleave', function(event) {
+					$(this).removeClass("highlight");
+	        return false;
+	    })
+	    .bind('dragover', function(event) {
+				$(this).addClass("highlight");
+	        return false;
+	    })
+	    .bind('drop', function(event) {
+					$(this).removeClass("highlight");
+	        var data = event.originalEvent.dataTransfer.getData('text/plain');
+					var li = "<li draggable=\"true\">" + data + "</li>";
+					$(this).html($(this).html().replace(li, ""));
+				  $(this).append(li);
+				  return true;
+	    });
+});
