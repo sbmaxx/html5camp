@@ -36,9 +36,14 @@
         },
 
         getPosition: function(index) {
-            if (index === 0) {
+            var current = 0,
+                matches = window.location.hash.match(/^#(\d+)/);
+            if (matches && matches[1]) {
+                current = matches[1];
+            }
+            if (index === current) {
                 return 'current';
-            } else if (index > 0) {
+            } else if (index > current) {
                 return 'next';
             } else {
                 return 'previous';
