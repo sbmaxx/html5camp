@@ -81,14 +81,13 @@ body {
 .slide section {
     padding: 30px;
 }
-.slide section p {
-    font-size: 20px;
+.slide section {
+    font-size: 50px;
 }
 .slide header {
     padding: 30px;
-    font-size: 30px;
-    color: #0054AB;
-    font-family: "Lucida Grande","Trebuchet MS",Verdana,sans-serif;
+    font-size: 80px;
+    color: #000;
 }
 #slide-start {
     vertical-align: middle;
