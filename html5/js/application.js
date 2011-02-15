@@ -315,9 +315,39 @@
     var Application =  {
         init: function() {
             this.presentation = new Presentation();
+            this.Map.init();
         }
     };
 
+    Application.Map = {
+        map: null,
+        init: function() {
+            var _this = this;
+
+            YMaps.jQuery(function () {
+                _this.map = new YMaps.Map(YMaps.jQuery("#yandex-map")[0]);
+                
+                _this.map.setCenter(new YMaps.GeoPoint(37.64, 55.76), 8);
+            })
+            
+            this.bind();
+        },
+        bind: function() {
+            var _this = this;
+
+            $('#showGeoLocation').bind('click', function() {
+                navigator.geolocation.getCurrentPosition(function(location) {
+                    console.log(location);
+                    _this.callback(location);
+                });
+                return false;
+            });
+        },
+        callback: function(location) {
+            var point = new YMaps.GeoPoint(location.coords.longitude, location.coords.latitude);
+            this.map.setCenter(point, 3);
+        }
+    }
     $(function() {
         Application.init();
     });    
