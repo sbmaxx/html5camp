@@ -36,9 +36,15 @@
         },
 
         getPosition: function(index) {
-            if (index === 0) {
+            var current = 0,
+                matches = window.location.hash.match(/^#(\d+)/);
+
+            if (matches && matches[1]) {
+                current = matches[1] - 1;
+            }
+            if (index === current) {
                 return 'current';
-            } else if (index > 0) {
+            } else if (index > current) {
                 return 'next';
             } else {
                 return 'previous';
@@ -192,7 +198,7 @@
             return window.location.hash.replace(/^#/, '');
         },
 
-        showSlide: function(id) {
+        showSlide: function(id, isStart) {
             if (!this.hasSlide(id) && !this.currentSlide) return;
             if (!this.currentSlide) this.setState('active');
 
@@ -206,6 +212,11 @@
                 this.currentSlide.move(multiplier);
             
             }
+            if (isStart) {
+                this.currentSlide = this.slides[0];
+                this.currentSlide.move(-1);
+            }
+
             slide.move(0);
             this.currentSlide = slide;
             this.updateInfo();
@@ -249,7 +260,7 @@
         },
         
         start: function() {
-            this.showSlide(this.getHash());
+            this.showSlide(this.getHash(), 1);
         }
     };
 
