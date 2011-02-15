@@ -178,6 +178,7 @@
                     opacity: 1,
                 }, 1000, function() {
                     _this.isActive = true;
+                    $('#preloader').hide();
                 });
             } else {
                 this.elems.container.removeClass().addClass(state);
