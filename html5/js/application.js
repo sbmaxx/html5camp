@@ -156,11 +156,11 @@
 
             this.elems.preloaderImg.animate({
                 opacity: 0,
-            }, 100, a1.resolve);
+            }, 1000, a1.resolve);
 
             this.elems.preloaderBg.animate({
                 opacity: 1,
-            }, 100, a2.resolve);
+            }, 1000, a2.resolve);
 
             $.when(a1, a2).done(callback);
         },
