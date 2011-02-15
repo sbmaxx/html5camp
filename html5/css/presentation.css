@@ -122,11 +122,15 @@ body {
     text-align: center;
 }
 .slide.stage header {
-    font-size: 90px;
+    margin-top: 15%;
+		font-size: 90px;
     letter-spacing: -2px;
     color: #000;
 }
+.slide.stage.map header {
+	margin-top: 0px;
+}
 .slide.map span {
-    cursor:pointer;
+		cursor:pointer;
     border-bottom: 1px dotted #000;
 }
