@@ -126,3 +126,7 @@ body {
     letter-spacing: -2px;
     color: #000;
 }
+.slide.map span {
+    cursor:pointer;
+    border-bottom: 1px dotted #000;
+}

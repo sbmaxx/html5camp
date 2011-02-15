@@ -333,19 +333,13 @@
                     _this.map.setCenter(new YMaps.GeoPoint(37.625697, 55.734037), 10);
                 });
 
-                navigator.geolocation.getCurrentPosition(function(location) {
-                    _this.callback(location);
-                });
+                var callback = function(location) {
+                    var point = new YMaps.GeoPoint(location.coords.longitude, location.coords.latitude);
+                    _this.map.setCenter(point, 15);
+                };
+                navigator.geolocation.getCurrentPosition(callback);
                 return false;
             });
-
-            $(window).bind('hashchange', function() {
-                if (!window.location.hash == '#10-slide') return;
-
-            });
-        },
-        callback: function(location) {
-            var point = new YMaps.GeoPoint(location.coords.longitude, location.coords.latitude);
         }
     }
     $(function() {
