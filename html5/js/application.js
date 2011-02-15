@@ -328,6 +328,11 @@
             var _this = this;
 
             $('#showGeoLocation').bind('click', function() {
+                YMaps.jQuery(function () {
+                    _this.map = new YMaps.Map(YMaps.jQuery("#yandex-map")[0]);
+                    _this.map.setCenter(new YMaps.GeoPoint(37.625697, 55.734037), 10);
+                });
+
                 navigator.geolocation.getCurrentPosition(function(location) {
                     _this.callback(location);
                 });
@@ -337,16 +342,10 @@
             $(window).bind('hashchange', function() {
                 if (!window.location.hash == '#10-slide') return;
 
-                YMaps.jQuery(function () {
-                    _this.map = new YMaps.Map(YMaps.jQuery("#yandex-map")[0]);
-                    
-                    _this.map.setCenter(new YMaps.GeoPoint(37.64, 55.76), 8);
-                });
             });
         },
         callback: function(location) {
             var point = new YMaps.GeoPoint(location.coords.longitude, location.coords.latitude);
-            this.map.setCenter(point, 10);
         }
     }
     $(function() {
