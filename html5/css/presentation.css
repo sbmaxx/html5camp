@@ -109,6 +109,14 @@ body {
 .slide .highlight {
 	border: 3px dashed #000;
 }
+.speakers div {
+	float: left; 
+	width: 50%;
+	text-align: center;
+}
+.speakers a {
+	font-size:30px;
+}
 .slide.stage {
     vertical-align: middle;
     text-align: center;
