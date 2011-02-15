@@ -336,6 +336,7 @@
                 var callback = function(location) {
                     var point = new YMaps.GeoPoint(location.coords.longitude, location.coords.latitude);
                     _this.map.setCenter(point, 15);
+                    _this.map.openBalloon(point, 'Кто здесь?!', {hasCloseButton:false, maxWidth:50})
                 };
                 navigator.geolocation.getCurrentPosition(callback);
                 return false;
