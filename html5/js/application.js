@@ -172,11 +172,11 @@
                 this.isActive = false;
 
                 this.elems.preloaderImg.animate({
-                    opacity: 0,
+                    opacity: 0
                 }, 1000, $.noop);
 
                 this.elems.slides.animate({
-                    opacity: 1,
+                    opacity: 1
                 }, 1000, function() {
                     _this.isActive = true;
                     $('#preloader').hide();
@@ -353,31 +353,29 @@
 
 $(function(){
 	
-	$(".dragndrop li[draggable=true]")
-		.live('dragstart', function(event) {
-					event.originalEvent.dataTransfer.setData('text/plain', $(this).html());
-					  return true;
-		    });
+	$(".dragndrop img[draggable=true]").live('dragstart', function(event) {
+	    event.originalEvent.dataTransfer.setData('url', $(this).attr('src'));
+	});
 	
-	$(".dragndrop")
-			.bind('dragenter', function(event) {
-					$(this).addClass("highlight");
+	$(".dragndrop div")
+	    .bind('dragenter', function(event) {
+	        $(this).addClass("highlight");
 	        return false;
 	    })
 	    .bind('dragleave', function(event) {
-					$(this).removeClass("highlight");
+			$(this).removeClass("highlight");
 	        return false;
 	    })
 	    .bind('dragover', function(event) {
-				$(this).addClass("highlight");
+	        $(this).addClass("highlight");
 	        return false;
 	    })
 	    .bind('drop', function(event) {
-					$(this).removeClass("highlight");
-	        var data = event.originalEvent.dataTransfer.getData('text/plain');
-					var li = "<li draggable=\"true\">" + data + "</li>";
-					$(this).html($(this).html().replace(li, ""));
-				  $(this).append(li);
-				  return true;
+			$(this).removeClass("highlight");
+	        var data = event.originalEvent.dataTransfer.getData('url'),
+			    img = '<img src="' + data + '" draggable="true">';
+
+	        $(this).find('img').after(img);
+			return false;
 	    });
 });
