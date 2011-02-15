@@ -38,8 +38,9 @@
         getPosition: function(index) {
             var current = 0,
                 matches = window.location.hash.match(/^#(\d+)/);
+
             if (matches && matches[1]) {
-                current = matches[1];
+                current = matches[1] - 1;
             }
             if (index === current) {
                 return 'current';
