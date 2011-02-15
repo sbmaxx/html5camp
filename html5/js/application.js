@@ -322,14 +322,6 @@
     Application.Map = {
         map: null,
         init: function() {
-            var _this = this;
-
-            YMaps.jQuery(function () {
-                _this.map = new YMaps.Map(YMaps.jQuery("#yandex-map")[0]);
-                
-                _this.map.setCenter(new YMaps.GeoPoint(37.64, 55.76), 8);
-            })
-            
             this.bind();
         },
         bind: function() {
@@ -337,15 +329,24 @@
 
             $('#showGeoLocation').bind('click', function() {
                 navigator.geolocation.getCurrentPosition(function(location) {
-                    console.log(location);
                     _this.callback(location);
                 });
                 return false;
             });
+
+            $(window).bind('hashchange', function() {
+                if (!window.location.hash == '#10-slide') return;
+
+                YMaps.jQuery(function () {
+                    _this.map = new YMaps.Map(YMaps.jQuery("#yandex-map")[0]);
+                    
+                    _this.map.setCenter(new YMaps.GeoPoint(37.64, 55.76), 8);
+                });
+            });
         },
         callback: function(location) {
             var point = new YMaps.GeoPoint(location.coords.longitude, location.coords.latitude);
-            this.map.setCenter(point, 3);
+            this.map.setCenter(point, 10);
         }
     }
     $(function() {
