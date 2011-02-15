@@ -353,8 +353,11 @@
 
 $(function(){
 	
-	$(".dragndrop img[draggable=true]").live('dragstart', function(event) {
-	    event.originalEvent.dataTransfer.setData('url', $(this).attr('src'));
+    var current = null;
+
+    $(".dragndrop img[draggable=true]").live('dragstart', function(event) {
+        current = $(this);
+	    event.originalEvent.dataTransfer.setData('Text', $(this).attr('src'));
 	});
 	
 	$(".dragndrop div")
@@ -372,10 +375,18 @@ $(function(){
 	    })
 	    .bind('drop', function(event) {
 			$(this).removeClass("highlight");
-	        var data = event.originalEvent.dataTransfer.getData('url'),
+	        var data = event.originalEvent.dataTransfer.getData('Text'),
 			    img = '<img src="' + data + '" draggable="true">';
 
-	        $(this).find('img').after(img);
+	        if (current) {
+	            current.remove();
+	        }
+
+	        if ($(this).find('img').length) {
+	            $(this).find('img').after(img);
+	        } else {
+	            $(this).prepend(img);
+	        }
 			return false;
 	    });
 });
