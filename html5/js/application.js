@@ -41,11 +41,9 @@
 
             if (matches && matches[1]) {
                 current = matches[1];
-                console.log('current is',current);
             }
 
             if (index == current) {
-                console.log('current&!');
                 return 'current';
             } else if (index > current) {
                 return 'next';
