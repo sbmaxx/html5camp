@@ -1,6 +1,5 @@
 /*jslint white: true, devel: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, newcap: true, immed: true, strict: true */
 
-(function($) {
     String.prototype.format = function () {
         var pattern = /\{\d+\}/g,
             args    = arguments;
@@ -372,12 +371,10 @@
         Application.init();
     });    
     
-}(window.$));
 
 
 //custom scripts
 
-(function($) {
     $(function(){
         
         var current = null;
@@ -417,4 +414,3 @@
                 return false;
             });
     });    
-}(window.$));
