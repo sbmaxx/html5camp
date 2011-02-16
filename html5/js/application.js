@@ -1,5 +1,6 @@
 /*jslint white: true, devel: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, newcap: true, immed: true, strict: true */
-(function() {
+
+(function($) {
     String.prototype.format = function () {
         var pattern = /\{\d+\}/g,
             args    = arguments;
@@ -370,46 +371,50 @@
     $(function() {
         Application.init();
     });    
-})();
+    
+}(window.$));
+
 
 //custom scripts
 
-$(function(){
-	
-    var current = null;
+(function($) {
+    $(function(){
+        
+        var current = null;
 
-    $(".dragndrop img[draggable=true]").live('dragstart', function(event) {
-        current = $(this);
-	    event.originalEvent.dataTransfer.setData('Text', $(this).attr('src'));
-	});
-	
-	$(".dragndrop div")
-	    .bind('dragenter', function(event) {
-	        $(this).addClass("highlight");
-	        return false;
-	    })
-	    .bind('dragleave', function(event) {
-			$(this).removeClass("highlight");
-	        return false;
-	    })
-	    .bind('dragover', function(event) {
-	        $(this).addClass("highlight");
-	        return false;
-	    })
-	    .bind('drop', function(event) {
-			$(this).removeClass("highlight");
-	        var data = event.originalEvent.dataTransfer.getData('Text'),
-			    img = '<img src="' + data + '" draggable="true">';
+        $(".dragndrop img[draggable=true]").live('dragstart', function(event) {
+            current = $(this);
+            event.originalEvent.dataTransfer.setData('Text', $(this).attr('src'));
+        });
+        
+        $(".dragndrop div")
+            .bind('dragenter', function(event) {
+                $(this).addClass("highlight");
+                return false;
+            })
+            .bind('dragleave', function(event) {
+                $(this).removeClass("highlight");
+                return false;
+            })
+            .bind('dragover', function(event) {
+                $(this).addClass("highlight");
+                return false;
+            })
+            .bind('drop', function(event) {
+                $(this).removeClass("highlight");
+                var data = event.originalEvent.dataTransfer.getData('Text'),
+                    img = '<img src="' + data + '" draggable="true">';
 
-	        if (current) {
-	            current.remove();
-	        }
+                if (current) {
+                    current.remove();
+                }
 
-	        if ($(this).find('img').length) {
-	            $(this).find('img').after(img);
-	        } else {
-	            $(this).prepend(img);
-	        }
-			return false;
-	    });
-});
+                if ($(this).find('img').length) {
+                    $(this).find('img').after(img);
+                } else {
+                    $(this).prepend(img);
+                }
+                return false;
+            });
+    });    
+}(window.$));
