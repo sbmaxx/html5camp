@@ -95,6 +95,13 @@
 body {
     font-family: "Gill Sans",Helvetica,Arial,sans-serif;
 }
+header, footer {
+    visibility: hidden;
+}
+article header,
+article footer {
+    visibility: visible;
+}
 a {
     color: #05C;
 }
