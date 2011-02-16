@@ -172,6 +172,18 @@ $(<span style='color:#2a00ff; '>"."</span>).bind(<span style='color:#2a00ff; '>'
 				</section>
 			</div>
 
+            <div class="slide code">
+                <header>А где мы?</header>
+                <section>
+<pre style='color:#000000;'>navigator.geolocation
+  .getCurrentPosition(<span style='color:#7f0055; font-weight:bold; '>function</span>(location) {
+    YMaps.GeoPoint(location.coords.longitude,
+      location.coords.latitude);
+});
+</pre>
+                </section>
+            </div>
+
 			<div class="slide">
 				<header>&lt;header&gt;</header>
 				<section>

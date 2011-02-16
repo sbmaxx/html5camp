@@ -336,7 +336,10 @@
                 });
 
                 var callback = function(location) {
-                    var point = new YMaps.GeoPoint(location.coords.longitude, location.coords.latitude);
+                    var point = (location.coords.accuracy > 1000)
+                        ? new YMaps.GeoPoint(37.604412, 55.739666) 
+                        : new YMaps.GeoPoint(location.coords.longitude, location.coords.latitude);
+
                     _this.map.setCenter(point, 15);
                     _this.map.openBalloon(point, 'Кто здесь?!', {hasCloseButton:false, maxWidth:50})
                 };
