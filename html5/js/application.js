@@ -18,7 +18,7 @@
         this.$el = $(node);
         this.id = this.getId();
 
-        this.setPosition(this.getPosition(this.$el.index()));
+        this.setPosition(this.getPosition(this.$el.index()), window.location.hash);
     }
     Slide.prototype = {
         getId: function() {
@@ -35,12 +35,14 @@
             this.$el.removeClass('previous next current');
         },
 
-        getPosition: function(index) {
-            var current = 0,
-                matches = window.location.hash.match(/^#(\d+)/);
+        getPosition: function(index, hash) {
+            var current = 0;
 
-            if (matches && matches[1]) {
-                current = matches[1];
+            if (hash) {
+                var matches = hash.match(/^#(\d+)/);
+                if (matches && matches[1]) {
+                    current = matches[1];
+                }
             }
 
             if (index == current) {
@@ -67,7 +69,7 @@
 
     function Presentation(options) {
         this.options = $.extend(true, {
-            slide: '.slide',
+            slide: 'article.slide',
             prefix: prefix
         }, options || {});
 
@@ -267,12 +269,13 @@
             }
 
             slide.move(0);
+            slide.set
             this.currentSlide = slide;
             this.updateInfo();
         },
 
         updateInfo: function() {
-            var index = this.currentSlide.$el.index() + 1,
+            var index = this.currentSlide.$el.index(),
                 total = this.slides.length;
 
             this.elems.info.html([index, '/', total].join(''));
