@@ -120,7 +120,7 @@ a:hover {
     color: #000;
 }
 .slide footer {
-    padding: 0 30px 30px 30px;
+    padding: 0px 30px;
     font-size: 80px;
     color: #000;
 }
@@ -161,6 +161,7 @@ a:hover {
 }
 .slide.code section {
     padding-top: 10px;
+    padding-bottom: 10px;
 }
 .slide.code header {
     padding-bottom: 10px;
@@ -170,4 +171,11 @@ a:hover {
     white-space: pre;
     font-family: "Lucida Console";
     font-size: 30px;
+}
+.gifts ul {
+    float: left;
+}
+.gifts img {
+    float: left;
+    margin-left: 50px;
 }
