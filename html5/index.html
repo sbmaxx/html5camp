@@ -77,7 +77,7 @@
 				<header>Основные направления</header>
 				<section>
 					<ul id="agenda">
-						<li>Drag&drop</li>
+						<li>Drag&amp;drop</li>
 						<li>Редактирование контента</li>
                         <li>Семантика и микроданные</li>
 						<li>Геолокация</li>
@@ -88,7 +88,7 @@
 			</article>
 
 			<article class="slide">
-				<header>Трудовики (drag&drop)</header>
+				<header>Трудовики (drag&amp;drop)</header>
 				<section>
                     <div class="speakers dragndrop">
                         <div>
@@ -108,7 +108,7 @@
 			</article>
 			
 			<article class="slide code">
-                <header>Трудовики (drag&drop)</header>
+                <header>Трудовики (drag&amp;drop)</header>
 				<section>
 <pre style='color:#000000;'>$(<span style='color:#2a00ff; '>"."</span>).live(<span style='color:#2a00ff; '>'dragstart'</span>, <span style='color:#7f0055; font-weight:bold; '>function</span>(e) {
     e.dataTransfer.setData(<span style='color:#2a00ff; '>'Text'</span>,
@@ -206,6 +206,21 @@ $(<span style='color:#2a00ff; '>"."</span>).bind(<span style='color:#2a00ff; '>'
                     </div>
 									</section>
             </article>
+
+							<article class="slide code">
+								<header>Трудовики (microdata)</header>
+								<section>
+									<pre><span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>div</span> class=<span style='color:#2a00ff; '>"vcard"</span><span style='color:#7f0055; '>></span>
+  <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>img</span> src=<span style='color:#2a00ff; '>""</span> class=<span style='color:#2a00ff; '>"photo"</span> <span style='color:#7f0055; '>/></span>
+  <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>a</span> class=<span style='color:#2a00ff; '>"url fn"</span> href=<span style='color:#2a00ff; '>"http://butaji.ru"</span><span style='color:#7f0055; '>></span>Vitaly Baum<span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; font-weight:bold; '>a</span><span style='color:#7f0055; '>></span>
+  <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>div</span> class=<span style='color:#2a00ff; '>"org"</span><span style='color:#7f0055; '>></span>Microsoft<span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; font-weight:bold; '>div</span><span style='color:#7f0055; '>></span>
+  <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>a</span> class=<span style='color:#2a00ff; '>"email"</span> href=<span style='color:#2a00ff; '>"mailto:vbaum@microsoft.com"</span><span style='color:#7f0055; '>></span>vbaum@microsoft.com<span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; font-weight:bold; '>a</span><span style='color:#7f0055; '>></span>
+  <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>div</span> class=<span style='color:#2a00ff; '>"tel"</span><span style='color:#7f0055; '>></span>89639980136<span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; font-weight:bold; '>div</span><span style='color:#7f0055; '>></span>
+<span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; font-weight:bold; '>div</span><span style='color:#7f0055; '>></span>
+									</pre>									
+								</section>
+							</article>
+
 
 			<article class="slide stage map">
                 <style>
