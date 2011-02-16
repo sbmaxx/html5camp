@@ -357,10 +357,10 @@
         bind: function() {
             this.$container.find('div').bind('focus', function() {
                 Application.presentation.isActive = false;
-                document.designMode = 'on';
+                this.designMode = 'on';
             }).bind('blur', function() {
                 Application.presentation.isActive = true;
-                document.designMode = 'off';
+                this.designMode = 'off';
             });
         }
     };
