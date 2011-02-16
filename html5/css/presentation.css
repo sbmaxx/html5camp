@@ -119,6 +119,11 @@ a:hover {
     font-size: 80px;
     color: #000;
 }
+.slide footer {
+    padding: 0 30px 30px 30px;
+    font-size: 80px;
+    color: #000;
+}
 .slide .highlight {
 	border-top: 2px dashed #000;
 	border-left: 2px dashed #000;
