@@ -295,11 +295,18 @@ localStorage.clear();
 				</section>
 			</article>
 			
-			<article class="slide">
+			<article class="slide code">
 				<header>AJAX-navigation</header>
 				<section>
-					Как работает
-				</section>
+
+<pre style='color:#000000;'>$(window).bind(<span style='color:#2a00ff; '>'hashchange'</span>, <span style='color:#7f0055; font-weight:bold; '>function</span>(e) {
+    <span style='color:#7f0055; font-weight:bold; '>var</span> hash = window.location.
+                      hash.<span style='color:#7f0055; font-weight:bold; '>replace</span>(<span style='color:#2a00ff; '>/</span><span style='color:#2a00ff; '>^</span><span style='color:#2a00ff; '>#</span><span style='color:#2a00ff; '>/</span>, <span style='color:#2a00ff; '>''</span>);
+    Presentation.showSlide(h);
+});
+</pre>
+
+                </section>
 			</article>
 
 			<article class="slide">
