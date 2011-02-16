@@ -59,7 +59,7 @@
             var _this = this;
 
             this.$el.animate({
-                'marginLeft': multiplier * (moveStep + 100)
+                'marginLeft': multiplier * (moveStep + 200)
             }, 500, function() {
                 _this.clearPosition();
                 _this.setPosition(_this.getPosition(multiplier));
