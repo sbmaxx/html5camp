@@ -38,15 +38,15 @@
 					<div class="speakers">
 						<div>
 							<img src="images/vbaum.png" alt="" />
-							<p><a href="mailto:sbmaxx@yandex-team.ru">sbmaxx@yandex-team.ru</a></p>
-							<p>Роман</p> 
-							<p>Рождественский</p>
+							<p><a href="mailto:sbmaxx@yandex-team.ru">sbmaxx@gmail.com</a></p>
+							<p>Роман<br /> 
+							Рождественский</p>
 						</div>
 						<div>
                             <img src="images/sbmaxx.png" alt="" />
-							<p><a href="mailto:vbaum@microsoft.com">vbaum@microsoft.com</a></p>
-							<p>Виталий</p> 
-							<p>Баум</p>
+							<p><a href="mailto:vbaum@microsoft.com">vitaly.baum@gmail.com</a></p>
+							<p>Виталий<br /> 
+							Баум</p>
 						</div>
 					</div>
 				</section>
@@ -92,15 +92,15 @@
                     <div class="speakers dragndrop">
                         <div>
                             <img src="images/vbaum.png" alt="" draggable="true"/>
-                            <p><a href="mailto:sbmaxx@yandex-team.ru">sbmaxx@yandex-team.ru</a></p>
-                            <p>Роман</p> 
-                            <p>Рождественский</p>
+                            <p><a href="mailto:sbmaxx@yandex-team.ru">sbmaxx@gmail.com</a></p>
+                            <p>Роман<br />
+                            Рождественский</p>
                         </div>
                         <div>
                             <img src="images/sbmaxx.png" alt="" draggable="true"/>
-                            <p><a href="mailto:vbaum@microsoft.com">vbaum@microsoft.com</a></p>
-                            <p>Виталий</p> 
-                            <p>Баум</p>
+                            <p><a href="mailto:vbaum@microsoft.com">vitaly.baum@gmail.com</a></p>
+                            <p>Виталий<br /> 
+                            Баум</p>
                         </div>
                     </div>
 				</section>
@@ -126,17 +126,34 @@ $(<span style='color:#2a00ff; '>"."</span>).bind(<span style='color:#2a00ff; '>'
 			<div class="slide">
 				<header>Трудовики (inline edit)</header>
 				<section>
-					<ul class="speakers" contenteditable="true" onfocus=" this.designMode = 'on';" onblur=" this.designMode = 'off';">
-						<li>Виталий Баум <a href="#" class="html">vbaum@microsoft.com</a></li>
-						<li>Роман Рождественский <a href="#" class="html">sbmaxx@yandex-team.ru</a></li>
-					</ul>
+                    <div class="speakers contenteditable">
+                        <div contenteditable="true">
+                            <img src="images/sbmaxx.png" alt="" />
+                            <p><a href="mailto:sbmaxx@yandex-team.ru">sbmaxx@gmail.com</a></p>
+                            <p>Роман<br />
+                            Рождественский</p>
+                        </div>
+                        <div contenteditable="true">
+                            <img src="images/vbaum.png" alt="" />
+                            <p><a href="mailto:vbaum@microsoft.com">vitaly.baum@gmail.com</a></p>
+                            <p>Виталий<br /> 
+                            Баум</p>
+                        </div>
+                    </div>
 				</section>
 			</div>
 			
-				<div class="slide">
+				<div class="slide code">
 					<header>Трудовики (inline edit)</header>
 					<section>
-						<p>&lt;ul contenteditable="true" onfocus=" document.designMode = 'on';" onblur=" document.designMode = 'off';"&gt;</p>
+<pre style='color:#000000;'><span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>div</span> contenteditable=<span style='color:#2a00ff; '>"true"</span> <span style='color:#7f0055; '>/></span>
+</pre>
+<pre style='color:#000000;'>$(<span style='color:#2a00ff; '>'.'</span>).bind(<span style='color:#2a00ff; '>'focus'</span>, <span style='color:#7f0055; font-weight:bold; '>function</span>() {
+    document.designMode = <span style='color:#2a00ff; '>'on'</span>;
+}).bind(<span style='color:#2a00ff; '>'blur'</span>, <span style='color:#7f0055; font-weight:bold; '>function</span>() {
+    document.designMode = <span style='color:#2a00ff; '>'off'</span>;
+});
+</pre>
 					</section>
 				</div>
 

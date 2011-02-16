@@ -317,6 +317,7 @@
         init: function() {
             this.presentation = new Presentation();
             this.Map.init();
+            this.ContentEditable.init();
         }
     };
 
@@ -343,7 +344,23 @@
                 return false;
             });
         }
-    }
+    };
+    
+    Application.ContentEditable = {
+        init: function() {
+            this.$container = $('.contenteditable');
+            this.bind();
+        },
+        bind: function() {
+            this.$container.find('div').bind('focus', function() {
+                Application.presentation.isActive = false;
+                document.designMode = 'on';
+            }).bind('blur', function() {
+                Application.presentation.isActive = true;
+                document.designMode = 'off';
+            });
+        }
+    };
     $(function() {
         Application.init();
     });    

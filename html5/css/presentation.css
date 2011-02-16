@@ -95,6 +95,12 @@
 body {
     font-family: "Gill Sans",Helvetica,Arial,sans-serif;
 }
+a {
+    color: #05C;
+}
+a:hover {
+    color: #CC0000;
+}
 .slide section {
     padding: 30px;
 }
