@@ -18,7 +18,7 @@
         this.$el = $(node);
         this.id = this.getId();
 
-        this.setPosition(this.getPosition(this.$el.index()), window.location.hash);
+        this.setPosition(this.getPosition(this.$el.index(), window.location.hash));
     }
     Slide.prototype = {
         getId: function() {
