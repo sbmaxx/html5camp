@@ -163,6 +163,6 @@ a:hover {
 
 .code pre {
     white-space: pre;
-    font-family: courier;
+    font-family: "Lucida Console";
     font-size: 30px;
 }
