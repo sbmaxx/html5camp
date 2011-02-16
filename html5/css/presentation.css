@@ -141,3 +141,15 @@ body {
 		cursor:pointer;
     border-bottom: 1px dotted #000;
 }
+.slide.code section {
+    padding-top: 10px;
+}
+.slide.code header {
+    padding-bottom: 10px;
+}
+
+.code pre {
+    white-space: pre;
+    font-family: courier;
+    font-size: 30px;
+}

@@ -106,16 +106,21 @@
 				</section>
 			</div>
 			
-				<div class="slide">
+				<div class="slide code">
 					<header>Трудовики (drag&drop)</header>
 					<section>
-						<p>&lt;li draggable="true"/&gt;</p>
-						<p>$(".").live('dragstart', handler);</p>
-						<p>$(".").bind('dragenter', handler)
-						    .bind('dragleave', handler)
-						    .bind('dragover', handler)
-						    .bind('drop', handler);</p>
-					</section>
+<pre style='color:#000000;'>$(<span style='color:#2a00ff; '>"."</span>).live(<span style='color:#2a00ff; '>'dragstart'</span>, <span style='color:#7f0055; font-weight:bold; '>function</span>(e) {
+    e.dataTransfer.setData(<span style='color:#2a00ff; '>'Text'</span>,
+        $(<span style='color:#7f0055; font-weight:bold; '>this</span>).attr(<span style='color:#2a00ff; '>'src'</span>));
+});
+
+$(<span style='color:#2a00ff; '>"."</span>).bind(<span style='color:#2a00ff; '>'dragenter'</span>, handler)
+      .bind(<span style='color:#2a00ff; '>'dragleave'</span>, handler)
+      .bind(<span style='color:#2a00ff; '>'dragover'</span>, handler)
+      .bind(<span style='color:#2a00ff; '>'drop'</span>, <span style='color:#7f0055; font-weight:bold; '>function</span>(e) {
+          e.dataTransfer.getData(<span style='color:#2a00ff; '>'Text'</span>),
+      });
+</pre>					</section>
 				</div>
 
 			<div class="slide">
