@@ -224,6 +224,24 @@ $(<span style='color:#2a00ff; '>"."</span>).bind(<span style='color:#2a00ff; '>'
 								</section>
 							</article>
 
+            <article class="slide code">
+                <header>&lt;header&gt;</header>
+                <section>
+                    <div class="column">
+<pre style='color:#000000;'><span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>nav</span> <span style='color:#7f0055; '>/></span>
+<span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>article</span><span style='color:#7f0055; '>></span>
+    <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>section</span><span style='color:#7f0055; '>></span>
+        <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>header</span> <span style='color:#7f0055; '>/></span>
+        <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>footer</span> <span style='color:#7f0055; '>/></span>
+    <span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; '>section</span><span style='color:#7f0055; '>></span>
+<span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; '>article</span><span style='color:#7f0055; '>></span>
+<span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>asite</span> <span style='color:#7f0055; '>/></span>
+</pre>
+                    </div>
+                    <div class="column"></div>
+                </section>
+                <footer>&lt;footer&gt;</footer>
+            </article>
 
 			<article class="slide stage map">
                 <style>
@@ -249,27 +267,14 @@ $(<span style='color:#2a00ff; '>"."</span>).bind(<span style='color:#2a00ff; '>'
       location.coords.latitude);
 });
 </pre>
+<pre style='color:#000000;'><span style='color:#7f0055; font-weight:bold; '>var</span> w = navigator.geolocation
+  .watchPosition(<span style='color:#7f0055; font-weight:bold; '>function</span>(location) {
+});
+navigator.geolocation
+  .clearWatch(w);
+</pre>
                 </section>
             </article>
-
-			<article class="slide code">
-				<header>&lt;header&gt;</header>
-				<section>
-                    <div class="column">
-<pre style='color:#000000;'><span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>nav</span> <span style='color:#7f0055; '>/></span>
-<span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>article</span><span style='color:#7f0055; '>></span>
-    <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>section</span><span style='color:#7f0055; '>></span>
-        <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>header</span> <span style='color:#7f0055; '>/></span>
-        <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>footer</span> <span style='color:#7f0055; '>/></span>
-    <span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; '>section</span><span style='color:#7f0055; '>></span>
-<span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; '>article</span><span style='color:#7f0055; '>></span>
-<span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>asite</span> <span style='color:#7f0055; '>/></span>
-</pre>
-                    </div>
-                    <div class="column"></div>
-				</section>
-                <footer>&lt;footer&gt;</footer>
-			</article>
 
 			<article class="slide stage map">
 				<header>Урок</header>
