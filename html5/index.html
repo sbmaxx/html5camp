@@ -15,7 +15,10 @@
 	<script>
 	document.documentElement.className = 'js';
 	</script>
+
+    <script src="js/libs/jquery-1.5.js"></script>
     <script src="http://api-maps.yandex.ru/1.1/index.xml?key=AJuul0wBAAAAHxzTAwIAEBgpmVnpcCwOoT61oeveoyYx8i0AAAAAAAAAAACyhlCgrJZUf0pGboY53VkAyRjYng=="></script>
+    <script src="js/application.js"></script>
 </head>
 
 <body>
@@ -56,7 +59,7 @@
 			<article class="slide">
 				<header>Содержание</header>
 				<section>
-					<ul id="agenda">
+					<ul>
 						<li>Что нового в HTML5</li>
 						<li>Настоящий школьный урок</li>
 						<li>Игры&nbsp;&mdash; и они тоже!</li>
@@ -76,7 +79,7 @@
 			<article class="slide">
 				<header>Основные направления</header>
 				<section>
-					<ul id="agenda">
+					<ul>
 						<li>Drag&amp;drop</li>
 						<li>Редактирование контента</li>
                         <li>Семантика и микроданные</li>
@@ -88,6 +91,48 @@
 
 			<article class="slide">
 				<header>Трудовики (drag&amp;drop)</header>
+                <script defer>
+                $(function(){
+                    var current = null;
+
+                    $(".dragndrop img[draggable=true]").live('dragstart', function(event) {
+                        current = $(this);
+                        event.originalEvent.dataTransfer.setData('Text', $(this).attr('src'));
+                    });
+                    
+                    $(".dragndrop div")
+                        .bind('dragenter', function(event) {
+                            $(this).addClass("highlight");
+                            return false;
+                        })
+                        .bind('dragleave', function(event) {
+                            $(this).removeClass("highlight");
+                            return false;
+                        })
+                        .bind('dragover', function(event) {
+                            $(this).addClass("highlight");
+                            return false;
+                        })
+                        .bind('drop', function(event) {
+                            $(this).removeClass("highlight");
+
+                            var data = event.originalEvent.dataTransfer.getData('Text'),
+                                img = '<img src="' + data + '" draggable="true">';
+
+                            if (current) {
+                                current.remove();
+                                current = null;
+                            }
+
+                            if ($(this).find('img').length) {
+                                $(this).find('img').after(img);
+                            } else {
+                                $(this).prepend(img);
+                            }
+                            return false;
+                        });
+                });    
+                </script>
 				<section>
                     <div class="speakers dragndrop">
                         <div>
@@ -127,6 +172,17 @@ $(<span style='color:#2a00ff; '>"."</span>).bind(<span style='color:#2a00ff; '>'
             </article>
 
 			<article class="slide">
+                <script defer>
+                $(function() {
+                    $('.contenteditable').find('div').bind('focus', function() {
+                        Application.presentation.isActive = false;
+                        this.designMode = 'on';
+                    }).bind('blur', function() {
+                        Application.presentation.isActive = true;
+                        this.designMode = 'off';
+                    });
+                });
+                </script>
 				<header>Трудовики (inline edit)</header>
 				<section>
                     <div class="speakers contenteditable">
@@ -253,6 +309,28 @@ $(<span style='color:#2a00ff; '>"."</span>).bind(<span style='color:#2a00ff; '>'
                         height: 400px;
                     }
                 </style>
+                <script defer>
+                $(function() {
+                    var map = null;
+                    $('#showGeoLocation').bind('click', function() {
+                        YMaps.jQuery(function () {
+                            map = new YMaps.Map(YMaps.jQuery("#yandex-map")[0]);
+                            map.setCenter(new YMaps.GeoPoint(37.625697, 55.734037), 10);
+                        });
+            
+                        var callback = function(location) {
+                            var point = (location.coords.accuracy > 1000)
+                                ? new YMaps.GeoPoint(37.604412, 55.739666) // dirty hack for small precision 
+                                : new YMaps.GeoPoint(location.coords.longitude, location.coords.latitude);
+            
+                            map.setCenter(point, 15);
+                            map.openBalloon(point, 'Кто здесь?!', {hasCloseButton:false, maxWidth:50});
+                        };
+                        navigator.geolocation.getCurrentPosition(callback);
+                        return false;
+                    });
+                });
+                </script>
 				<header id="showGeoLocation"><span>А где мы?</span></header>
 				<section>
                     <div id="yandex-map"></div>
@@ -281,7 +359,7 @@ navigator.geolocation
 				<header>Урок</header>
 				<section>
 					<p>Нам нужны добровольцы</p>
-					<a href="TicTacToe/tic-tac-toe.html" target="_new"><img src="http://oldupyachka.ru/img/kot/93.gif" alt=""/></a>
+					<a href="TicTacToe/tic-tac-toe.html" target="_blank"><img src="http://oldupyachka.ru/img/kot/93.gif" alt=""/></a>
 				</section>
 			</article>
 			
@@ -300,6 +378,13 @@ localStorage.clear();
 					</pre>
 				</section>
 			</article>
+
+            <article class="slide">
+                <header>Кстати, об играх</header>
+                <section>
+                        <a href="http://www.pirateslovedaisies.com/" target="_blank">http://www.pirateslovedaisies.com/</a>
+                </section>
+            </article>
 			
 			<article class="slide code">
 				<header>AJAX-navigation</header>
@@ -315,13 +400,6 @@ localStorage.clear();
                 </section>
 			</article>
 
-			<article class="slide">
-				<header>Кстати, об играх</header>
-				<section>
-						<a href="http://www.pirateslovedaisies.com/" target="_new">http://www.pirateslovedaisies.com/</a>
-				</section>
-			</article>
-			
 			<article class="slide">
 				<header>HTML5-based presentation</header>
 				<section>
@@ -349,7 +427,7 @@ localStorage.clear();
 			<article class="slide">
 				<header>Заключение</header>
 				<section>
-					<ul id="agenda">
+					<ul>
 						<li>Что нового в HTML5</li>
 						<li>Настоящий школьный урок</li>
 						<li>Игры&nbsp;&mdash; и они тоже!</li>
@@ -360,7 +438,7 @@ localStorage.clear();
 			</article>
 				
 			<article class="slide stage map">
-				<header>Q&A</header>
+				<header>Q&amp;A</header>
 				<section>
 					<p>за ответами на сложные вопросы обращаться в окошко №15</p>
 				</section>
@@ -384,11 +462,5 @@ localStorage.clear();
 
 		<footer>&copy; sbmaxx&amp;vbaum</footer>
 	</div> <!-- end of #container -->
-
-
-	<script src="js/libs/jquery-1.5.js"></script>
-
-
-	<script src="js/application.js"></script>
 </body>
 </html>
