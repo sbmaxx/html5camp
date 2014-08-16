@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=9" />
+
+	<title>HTML5CAMP. Кружок вышивания HTML5 JavaScript`ом</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/presentation.css">
+	<script>
+	document.documentElement.className = 'js';
+	</script>
+
+    <script src="js/libs/jquery-1.5.js"></script>
+	<script src="http://api-maps.yandex.ru/1.1/index.xml?key=AGgo71MBAAAA6f-nWwMAJEJEK7NQpd1Zu5NDUw0WCCrDiCcAAAAAAAAAAACJnOY2ztLkQwi8xLU8IAOHfTjdcw=="></script>
+    <script src="js/application.js"></script>
+</head>
+
+<body>
+
+	<div id="container">
+		<header>HTML5CAMP. Кружок вышивания HTML5 JavaScript`ом</header>
+
+		<div id="slides">
+            <div id="html-logo"></div>
+
+			<article class="slide stage">
+				<header>Вышиваем HTML5*</header>
+				<section>
+					<p>*в подарок всем хозяюшкам бесплатная библиотека рукоделия</p>
+				</section>
+			</article>
+
+			<article class="slide">
+				<header>Трудовики</header>
+				<section>
+					<div class="speakers">
+						<div>
+							<img src="images/vbaum.png" alt="" />
+							<p><a href="mailto:sbmaxx@yandex-team.ru">sbmaxx@gmail.com</a></p>
+							<p>Роман<br />
+							Рождественский</p>
+						</div>
+						<div>
+                            <img src="images/sbmaxx.png" alt="" />
+							<p><a href="mailto:vbaum@microsoft.com">vitaly.baum@gmail.com</a></p>
+							<p>Виталий<br />
+							Баум</p>
+						</div>
+					</div>
+				</section>
+			</article>
+
+			<article class="slide">
+				<header>Содержание</header>
+				<section>
+					<ul>
+						<li>Что нового в HTML5</li>
+						<li>Настоящий школьный урок</li>
+						<li>Игры&nbsp;&mdash; и они тоже!</li>
+						<li>B хозяйстве</li>
+						<li>Подарочек</li>
+					</ul>
+				</section>
+			</article>
+
+			<article class="slide stage map">
+				<header>Как правильно подобрать нитки</header>
+				<section>
+					<p>Или чего интересного появилось в HTML5</p>
+				</section>
+			</article>
+
+			<article class="slide">
+				<header>Основные направления</header>
+				<section>
+					<ul>
+						<li>Drag&amp;drop</li>
+						<li>Редактирование контента</li>
+                        <li>Семантика и микроданные</li>
+						<li>Геолокация</li>
+						<li>Хранение данных</li>
+					</ul>
+				</section>
+			</article>
+
+			<article class="slide">
+				<header>Трудовики (drag&amp;drop)</header>
+                <script defer>
+                $(function(){
+                    var current = null;
+
+                    $(".dragndrop img[draggable=true]").live('dragstart', function(event) {
+                        current = $(this);
+                        event.originalEvent.dataTransfer.setData('Text', $(this).attr('src'));
+                    });
+
+                    $(".dragndrop div")
+                        .bind('dragenter', function(event) {
+                            $(this).addClass("highlight");
+                            return false;
+                        })
+                        .bind('dragleave', function(event) {
+                            $(this).removeClass("highlight");
+                            return false;
+                        })
+                        .bind('dragover', function(event) {
+                            $(this).addClass("highlight");
+                            return false;
+                        })
+                        .bind('drop', function(event) {
+                            $(this).removeClass("highlight");
+
+                            var data = event.originalEvent.dataTransfer.getData('Text'),
+                                img = '<img src="' + data + '" draggable="true">';
+
+                            if (current) {
+                                current.remove();
+                                current = null;
+                            }
+
+                            if ($(this).find('img').length) {
+                                $(this).find('img').after(img);
+                            } else {
+                                $(this).prepend(img);
+                            }
+                            return false;
+                        });
+                });
+                </script>
+				<section>
+                    <div class="speakers dragndrop">
+                        <div>
+                            <img src="images/vbaum.png" alt="" draggable="true"/>
+                            <p><a href="mailto:sbmaxx@yandex-team.ru">sbmaxx@gmail.com</a></p>
+                            <p>Роман<br />
+                            Рождественский</p>
+                        </div>
+                        <div>
+                            <img src="images/sbmaxx.png" alt="" draggable="true"/>
+                            <p><a href="mailto:vbaum@microsoft.com">vitaly.baum@gmail.com</a></p>
+                            <p>Виталий<br />
+                            Баум</p>
+                        </div>
+                    </div>
+				</section>
+			</article>
+
+			<article class="slide code">
+                <header>Трудовики (drag&amp;drop)</header>
+				<section>
+<pre style='color:#000000;'><span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>div</span> draggable=<span style='color:#2a00ff; '>"true"</span> <span style='color:#7f0055; '>/></span>
+</pre>
+<pre style='color:#000000;'>$(<span style='color:#2a00ff; '>"."</span>).live(<span style='color:#2a00ff; '>'dragstart'</span>, <span style='color:#7f0055; font-weight:bold; '>function</span>(e) {
+    e.dataTransfer.setData(<span style='color:#2a00ff; '>'Text'</span>,
+        $(<span style='color:#7f0055; font-weight:bold; '>this</span>).attr(<span style='color:#2a00ff; '>'src'</span>));
+});
+
+$(<span style='color:#2a00ff; '>"."</span>).bind(<span style='color:#2a00ff; '>'dragenter'</span>, handler)
+      .bind(<span style='color:#2a00ff; '>'dragleave'</span>, handler)
+      .bind(<span style='color:#2a00ff; '>'dragover'</span>, handler)
+      .bind(<span style='color:#2a00ff; '>'drop'</span>, <span style='color:#7f0055; font-weight:bold; '>function</span>(e) {
+          e.dataTransfer.getData(<span style='color:#2a00ff; '>'Text'</span>);
+      });
+</pre>
+                </section>
+            </article>
+
+			<article class="slide">
+                <script defer>
+                $(function() {
+                    $('.contenteditable').find('div').bind('focus', function() {
+                        Application.presentation.isActive = false;
+                        this.designMode = 'on';
+                    }).bind('blur', function() {
+                        Application.presentation.isActive = true;
+                        this.designMode = 'off';
+                    });
+                });
+                </script>
+				<header>Трудовики (inline edit)</header>
+				<section>
+                    <div class="speakers contenteditable">
+                        <div contenteditable="true">
+                            <img src="images/sbmaxx.png" alt="" />
+                            <p><a href="mailto:sbmaxx@yandex-team.ru">sbmaxx@gmail.com</a></p>
+                            <p>Роман<br />
+                            Рождественский</p>
+                        </div>
+                        <div contenteditable="true">
+                            <img src="images/vbaum.png" alt="" />
+                            <p><a href="mailto:vbaum@microsoft.com">vitaly.baum@gmail.com</a></p>
+                            <p>Виталий<br />
+                            Баум</p>
+                        </div>
+                    </div>
+				</section>
+			</article>
+
+            <article class="slide code">
+                <header>Трудовики (inline edit)</header>
+				<section>
+<pre style='color:#000000;'><span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>div</span> contenteditable=<span style='color:#2a00ff; '>"true"</span> <span style='color:#7f0055; '>/></span>
+</pre>
+<pre style='color:#000000;'>$(<span style='color:#2a00ff; '>'.'</span>).bind(<span style='color:#2a00ff; '>'focus'</span>, <span style='color:#7f0055; font-weight:bold; '>function</span>() {
+    document.designMode = <span style='color:#2a00ff; '>'on'</span>;
+}).bind(<span style='color:#2a00ff; '>'blur'</span>, <span style='color:#7f0055; font-weight:bold; '>function</span>() {
+    document.designMode = <span style='color:#2a00ff; '>'off'</span>;
+});
+</pre>
+                </section>
+            </article>
+
+            <article class="slide">
+                <header>Трудовики (microdata)</header>
+                <section>
+                    <div class="speakers">
+                        <div>
+                            <img src="images/sbmaxx.png" alt="" />
+                            <p><a class="html" href="sbmaxx@yandex-team.ru">sbmaxx@yandex-team.ru</a></p>
+                            <p>Роман<br />
+                            Рождественский</p>
+                        </div>
+                        <div>
+                            <img src="images/vbaum.png" alt="" />
+                            <p><a href="vbaum@microsoft.com">vbaum@microsoft.com</a></p>
+                            <p>Виталий<br />
+                            Баум</p>
+                        </div>
+
+
+												<div style="display: none;" id="hcard-Роман-Рождественский" class="vcard">
+													<img style="float:left; margin-right:4px" src="http://a0.twimg.com/profile_images/550932607/x_793537a5.jpg" alt="photo of " class="photo"/>
+												 <a class="url fn" href="http://rozhdestvenskiy.ru">Роман Рождественский</a>
+												 <div class="org">Яндекс</div>
+												 <a class="email" href="mailto:sbmaxx@yandex-team.ru">sbmaxx@yandex-team.ru</a>
+												 <div class="adr">
+												  <span class="locality">Москва</span>
+
+												  <span class="country-name">Россия</span>
+
+												 </div>
+												 <div class="tel">+79152736718</div>
+												</div>
+
+
+												<div style="display: none;" id="hcard-Vitaly-Baum" class="vcard">
+												  <img style="float:left; margin-right:4px" src="http://a2.twimg.com/profile_images/1174853135/vbaum.png" alt="photo of " class="photo"/>
+												 <a class="url fn" href="http://butaji.ru">Vitaly Baum</a>
+												 <div class="org">Microsoft</div>
+												 <a class="email" href="mailto:vbaum@microsoft.com">vbaum@microsoft.com</a>
+												 <div class="tel">89639980136</div>
+												<p style="font-size:smaller;">This <a href="http://microformats.org/wiki/hcard">hCard</a> created with the <a href="http://microformats.org/code/hcard/creator">hCard creator</a>.</p>
+												</div>
+
+
+                        <div style="display: none;" class="vevent" id="hcalendar-html5camp"><a class="url" href="http://html5camp.ru"><abbr class="dtstart" title="2011-02-17">February 17th</abbr>, <abbr class="dtend" title="2011-02-18"> 2011</abbr> <span class="summary">html5camp</span> at <span class="location">Moscow, 1 Zachtevsky pereulok, 4.</span></a><div class="description">Организуя HTML5 Camp, мы хотим поговорить о новых веб-стандартах, новых веяниях в развитии интернет-браузеров, новых возможностях, открывающихся перед веб-разработчиками и веб-дизайнерами и, конечно, о новых вызовах и проблемах. В общем «Make Web Not War»</div><div class="tags">Tags: <a rel="tag" href="http://eventful.com/events/tags/html5">html5</a><a rel="tag" href="http://eventful.com/events/tags/javascript"> javascript</a><a rel="tag" href="http://eventful.com/events/tags/css"> css</a></div></div>
+                    </div>
+									</section>
+            </article>
+
+							<article class="slide code">
+								<header>Трудовики (microdata)</header>
+								<section>
+									<pre><span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>div</span> class=<span style='color:#2a00ff; '>"vcard"</span><span style='color:#7f0055; '>></span>
+  <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>img</span> src=<span style='color:#2a00ff; '>""</span> class=<span style='color:#2a00ff; '>"photo"</span> <span style='color:#7f0055; '>/></span>
+  <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>a</span> class=<span style='color:#2a00ff; '>"url fn"</span> href=<span style='color:#2a00ff; '>"http://butaji.ru"</span><span style='color:#7f0055; '>></span>
+    Vitaly Baum<span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; font-weight:bold; '>a</span><span style='color:#7f0055; '>></span>
+  <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>div</span> class=<span style='color:#2a00ff; '>"org"</span><span style='color:#7f0055; '>></span>Microsoft<span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; font-weight:bold; '>div</span><span style='color:#7f0055; '>></span>
+  <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>a</span> class=<span style='color:#2a00ff; '>"email"</span>
+    href=<span style='color:#2a00ff; '>"mailto:vbaum@microsoft.com"</span><span style='color:#7f0055; '>></span>
+    vbaum@microsoft.com<span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; font-weight:bold; '>a</span><span style='color:#7f0055; '>></span>
+  <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; font-weight:bold; '>div</span> class=<span style='color:#2a00ff; '>"tel"</span><span style='color:#7f0055; '>></span>89639980136<span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; font-weight:bold; '>div</span><span style='color:#7f0055; '>></span>
+<span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; font-weight:bold; '>div</span><span style='color:#7f0055; '>></span>
+									</pre>
+								</section>
+							</article>
+
+            <article class="slide code">
+                <header>&lt;header&gt;</header>
+                <section>
+                    <div class="column">
+<pre style='color:#000000;'><span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>nav</span> <span style='color:#7f0055; '>/></span>
+<span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>article</span><span style='color:#7f0055; '>></span>
+    <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>section</span><span style='color:#7f0055; '>></span>
+        <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>header</span> <span style='color:#7f0055; '>/></span>
+        <span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>footer</span> <span style='color:#7f0055; '>/></span>
+    <span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; '>section</span><span style='color:#7f0055; '>></span>
+<span style='color:#7f0055; '>&lt;/</span><span style='color:#7f0055; '>article</span><span style='color:#7f0055; '>></span>
+<span style='color:#7f0055; '>&lt;</span><span style='color:#7f0055; '>asite</span> <span style='color:#7f0055; '>/></span>
+</pre>
+                    </div>
+                    <div class="column"></div>
+                </section>
+                <footer>&lt;footer&gt;</footer>
+            </article>
+
+			<article class="slide stage map">
+                <style>
+                    #yandex-map {
+                        margin: 0 auto;
+                        margin-top: -60px;
+												width: 600px;
+                        height: 400px;
+                    }
+                </style>
+                <script defer>
+                $(function() {
+                    var map = null;
+                    $('#showGeoLocation').bind('click', function() {
+                        YMaps.jQuery(function () {
+                            map = new YMaps.Map(YMaps.jQuery("#yandex-map")[0]);
+                            map.setCenter(new YMaps.GeoPoint(37.625697, 55.734037), 10);
+                        });
+
+                        var callback = function(location) {
+                            var point = (location.coords.accuracy > 1000)
+                                ? new YMaps.GeoPoint(37.604412, 55.739666) // dirty hack for small precision
+                                : new YMaps.GeoPoint(location.coords.longitude, location.coords.latitude);
+
+                            map.setCenter(point, 15);
+                            map.openBalloon(point, 'Кто здесь?!', {hasCloseButton:false, maxWidth:50});
+                        };
+                        navigator.geolocation.getCurrentPosition(callback);
+                        return false;
+                    });
+                });
+                </script>
+				<header id="showGeoLocation"><span>А где мы?</span></header>
+				<section>
+                    <div id="yandex-map"></div>
+				</section>
+			</article>
+
+            <article class="slide code">
+                <header>А где мы?</header>
+                <section>
+<pre style='color:#000000;'>navigator.geolocation
+  .getCurrentPosition(<span style='color:#7f0055; font-weight:bold; '>function</span>(location) {
+    YMaps.GeoPoint(location.coords.longitude,
+      location.coords.latitude);
+});
+</pre>
+<pre style='color:#000000;'><span style='color:#7f0055; font-weight:bold; '>var</span> w = navigator.geolocation
+  .watchPosition(<span style='color:#7f0055; font-weight:bold; '>function</span>(location) {
+});
+navigator.geolocation
+  .clearWatch(w);
+</pre>
+                </section>
+            </article>
+
+			<article class="slide stage map">
+				<header>Урок</header>
+				<section>
+					<p>Нам нужны добровольцы</p>
+					<a href="TicTacToe/tic-tac-toe.html" target="_blank"><img src="http://oldupyachka.ru/img/kot/93.gif" alt=""/></a>
+				</section>
+			</article>
+
+			<article class="slide code">
+				<header>LocalStorage</header>
+				<section>
+					<pre style='color:#000000;'>window.localStorage
+
+<span style='color:#7f0055; font-weight:bold; '>var</span> result = localStorage.<span style='color:#7f0055; font-weight:bold; '>getItem</span>(<span style='color:#2a00ff; '>'name-here'</span>);
+
+localStorage.setItem(<span style='color:#2a00ff; '>'name-here'</span>, myObject);
+
+localStorage.removeItem(<span style='color:#2a00ff; '>'name-here'</span>);
+
+localStorage.clear();
+					</pre>
+				</section>
+			</article>
+
+            <article class="slide">
+                <header>Кстати, об играх</header>
+                <section>
+                        <a href="http://www.pirateslovedaisies.com/" target="_blank">http://www.pirateslovedaisies.com/</a>
+                </section>
+            </article>
+
+			<article class="slide code">
+				<header>AJAX-navigation</header>
+				<section>
+
+<pre style='color:#000000;'>$(window).bind(<span style='color:#2a00ff; '>'hashchange'</span>, <span style='color:#7f0055; font-weight:bold; '>function</span>(e) {
+    <span style='color:#7f0055; font-weight:bold; '>var</span> hash = window.location.
+                      hash.<span style='color:#7f0055; font-weight:bold; '>replace</span>(<span style='color:#2a00ff; '>/</span><span style='color:#2a00ff; '>^</span><span style='color:#2a00ff; '>#</span><span style='color:#2a00ff; '>/</span>, <span style='color:#2a00ff; '>''</span>);
+    Presentation.showSlide(h);
+});
+</pre>
+
+                </section>
+			</article>
+
+			<article class="slide">
+				<header>HTML5-based presentation</header>
+				<section>
+					<ul>
+						<li>Удобно создавать;</li>
+						<li>Удобно показывать примеры;</li>
+						<li>Тренд;</li>
+					</ul>
+				</section>
+			</article>
+
+			<article class="slide gifts">
+				<header>HTML5 comes today</header>
+				<section>
+					<h2>Подарочки</h2>
+					<ul>
+						<li><a href="http://jquery.com">jQuery 1.5</a></li>
+						<li><a href="http://code.google.com/p/html5shim/">html5.js</a></li>
+						<li><a href="http://diveintohtml5.org/">Dive into HTML5</a></li>
+					</ul>
+                    <img src="images/gifts.png" alt="подарки" width="200" height="175"/>
+				</section>
+			</article>
+
+			<article class="slide">
+				<header>Заключение</header>
+				<section>
+					<ul>
+						<li>Что нового в HTML5</li>
+						<li>Настоящий школьный урок</li>
+						<li>Игры&nbsp;&mdash; и они тоже!</li>
+						<li>B хозяйстве</li>
+						<li>Подарочек</li>
+					</ul>
+				</section>
+			</article>
+
+			<article class="slide stage map">
+				<header>Q&amp;A</header>
+				<section>
+					<p>за ответами на сложные вопросы обращаться в окошко №15</p>
+				</section>
+			</article>
+
+			<article class="slide stage map">
+				<header>Спасибо!</header>
+				<section>
+					<img src="http://oldupyachka.ru/img/kot/10.gif" alt=""><p>все равно мы приготовили защиту от летящих помидоров :)</p>
+				</section>
+			</article>
+
+		</div>
+
+		<div id="info"></div>
+
+		<div id="preloader">
+			<div id="preloader-img" class="preloader"><img src="images/HTML5_Badge_512.png" alt="html5 logo"/></div>
+			<div id="preloader-bg" class="preloader"><img src="images/background.png" alt="html5 camp"/></div>
+		</div>
+
+		<footer>&copy; sbmaxx&amp;vbaum</footer>
+	</div> <!-- end of #container -->
+</body>
+</html>

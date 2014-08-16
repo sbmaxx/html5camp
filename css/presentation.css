@@ -1,0 +1,182 @@
+#container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  display: block;
+  overflow: hidden;
+  background: #000;
+  background: -webkit-gradient(linear, left top, left bottom, from(#444), to(black));
+  background: -moz-linear-gradient(top, #444, black);
+}
+.preloader {
+    position:absolute;
+    left:5%;
+    top:5%;
+    width:90%;
+    height:90%;
+    text-align: center;    
+}
+#preloader-bg {
+    visibility: hidden;
+}
+#preloader-img {
+    visibility: hidden;
+}
+#preloader-img img {
+    margin-top: 30px;
+}
+
+#info {
+    position: absolute;
+    top: 97%;
+    left: 97%;
+    color: #fff;
+}
+
+#slides {
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    left:5%;
+    top:5%;
+    width:90%;
+    height:90%;
+    text-align: left;
+    background: #eee;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.slide.previous {
+    margin-left: -10000px;
+}
+.slide.next {
+    margin-left: 10000px;
+}
+
+.no-js #slides,
+.no-js #preloader-bg,
+#slides {
+    display: none;
+}
+
+#container #slides {
+    display: none;
+}
+#container #info {
+    display: none;
+}
+#container.active #info {
+    display: block;
+}
+#container.active #preloader {
+}
+#container.active #slides {
+    display: block;
+}
+
+#html-logo {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 96%;
+    top: 3%;
+    background: url("../images/HTML5_Badge_32.png") no-repeat;
+    z-index: 10;
+}
+/** styling **/
+body {
+    font-family: "Gill Sans",Helvetica,Arial,sans-serif;
+}
+header, footer {
+    visibility: hidden;
+}
+article header,
+article footer {
+    visibility: visible;
+}
+a {
+    color: #05C;
+}
+a:hover {
+    color: #CC0000;
+}
+.slide section {
+    padding: 30px;
+}
+.slide section {
+    font-size: 50px;
+}
+.slide header {
+    padding: 30px;
+    font-size: 80px;
+    color: #000;
+}
+.slide footer {
+    padding: 0px 30px;
+    font-size: 80px;
+    color: #000;
+}
+.slide .highlight {
+	border-top: 2px dashed #000;
+	border-left: 2px dashed #000;
+	border-right: 2px dashed #000;
+}
+.speakers {
+}
+.speakers div {
+	float: left; 
+	width: 48%;
+	text-align: center;
+    border-top: 2px dashed transparent;
+    border-left: 2px dashed transparent;
+    border-right: 2px dashed transparent;
+}
+.speakers a {
+	font-size:30px;
+}
+.slide.stage {
+    vertical-align: middle;
+    text-align: center;
+}
+.slide.stage header {
+    margin-top: 15%;
+		font-size: 90px;
+    letter-spacing: -2px;
+    color: #000;
+}
+.slide.stage.map header {
+	margin-top: 0px;
+}
+.slide.map span {
+		cursor:pointer;
+    border-bottom: 1px dotted #000;
+}
+.slide.code section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.slide.code header {
+    padding-bottom: 10px;
+}
+
+.code pre {
+    white-space: pre;
+    font-family: "Lucida Console";
+    font-size: 30px;
+}
+.gifts ul {
+    float: left;
+}
+.gifts img {
+    float: left;
+    margin-left: 50px;
+}
+img {border: 0;}
